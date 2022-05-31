@@ -4,8 +4,7 @@ import { Box, Container } from '@mui/system';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Login = () => {
-
+const Register = () => {
     const [loginData, setLoginData] = useState({})
 
     const handleOnChange = e => {
@@ -18,7 +17,10 @@ const Login = () => {
     }
 
     const handleLogin = e => {
-
+        if (loginData.password !== loginData.password2) {
+            alert('Password Mismatched')
+            return
+        }
         alert('Submitted');
         e.preventDefault();
     }
@@ -26,7 +28,7 @@ const Login = () => {
         <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
             <Box>
                 <Typography sx={{ m: 1, textAlign: 'center', width: '100%' }} variant="subtitle1" gutterBottom component="div">
-                    Login
+                    Register
                 </Typography>
                 <form onSubmit={handleLogin}>
                     <TextField
@@ -44,13 +46,19 @@ const Login = () => {
                         name="password"
                         onChange={handleOnChange}
                         variant="standard" />
-
-                    <Button type="submit" variant='contained' sx={{ width: '100%', m: 1 }}>Login</Button>
-                    <NavLink style={{ textDecoration: 'none' }} to="/register"><Button variant="text">New User? Please Register</Button></NavLink>
+                    <TextField
+                        sx={{ width: '100%', m: 1 }}
+                        id="standard-basic3" label="Retype Password"
+                        type="password"
+                        name="password2"
+                        onChange={handleOnChange}
+                        variant="standard" />
+                    <Button type="submit" variant='contained' sx={{ width: '100%', m: 1 }}>Register</Button>
+                    <NavLink style={{ textDecoration: 'none' }} to="/login"><Button variant="text">Already Registered? Please Login</Button></NavLink>
                 </form>
             </Box>
         </Container>
     );
 };
 
-export default Login;
+export default Register;
