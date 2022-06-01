@@ -1,11 +1,15 @@
 import React from 'react';
-import { Button, TextField, Typography } from '@mui/material';
+import { Alert, Button, TextField, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({})
+    const { registerUser, user, error } = useAuth();
+
+
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -16,12 +20,12 @@ const Register = () => {
         e.preventDefault();
     }
 
-    const handleLogin = e => {
+    const handleRegistration = e => {
         if (loginData.password !== loginData.password2) {
             alert('Password Mismatched')
             return
         }
-        alert('Submitted');
+        registerUser(loginData.email, loginData.password);
         e.preventDefault();
     }
     return (
@@ -30,7 +34,7 @@ const Register = () => {
                 <Typography sx={{ m: 1, textAlign: 'center', width: '100%' }} variant="subtitle1" gutterBottom component="div">
                     Register
                 </Typography>
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handleRegistration}>
                     <TextField
                         sx={{ width: '100%', m: 1 }}
                         id="standard-basic" label="Email"
@@ -55,6 +59,8 @@ const Register = () => {
                         variant="standard" />
                     <Button type="submit" variant='contained' sx={{ width: '100%', m: 1 }}>Register</Button>
                     <NavLink style={{ textDecoration: 'none' }} to="/login"><Button variant="text">Already Registered? Please Login</Button></NavLink>
+                    {user?.email && <Alert severity="success">User Created Successfully</Alert>}
+                    {error && <Alert severity="error">{error}</Alert>}
                 </form>
             </Box>
         </Container>

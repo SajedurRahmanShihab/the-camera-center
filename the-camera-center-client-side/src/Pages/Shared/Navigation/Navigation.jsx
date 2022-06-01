@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const fontStyles = {
     fontFamily: 'Sora'
@@ -12,6 +13,7 @@ const fontStyles = {
 
 
 const Navigation = () => {
+    const { user, logout } = useAuth();
     return (
         <Box>
             <AppBar style={{ background: '#000' }} position="static">
@@ -36,9 +38,14 @@ const Navigation = () => {
                         <NavLink to="/reviews">
                             <Button style={{ textDecoration: 'none', color: 'white' }} >Reviews</Button>
                         </NavLink>
-                        <NavLink to="/login">
-                            <Button style={{ textDecoration: 'none', color: 'white' }} >Login</Button>
-                        </NavLink>
+                        {
+                            user?.email ?
+                                <Button style={{ color: 'inherit' }} onClick={logout}>Logout</Button>
+                                :
+                                <NavLink to="/login">
+                                    <Button style={{ textDecoration: 'none', color: 'white' }} >Login</Button>
+                                </NavLink>
+                        }
 
                     </Box>
                 </Toolbar>

@@ -3,9 +3,11 @@ import { Button, TextField, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+
 
 const Login = () => {
-
+    const { loginUser } = useAuth();
     const [loginData, setLoginData] = useState({})
 
     const handleOnChange = e => {
@@ -18,8 +20,7 @@ const Login = () => {
     }
 
     const handleLogin = e => {
-
-        alert('Submitted');
+        loginUser(loginData.email, loginData.password)
         e.preventDefault();
     }
     return (
@@ -44,8 +45,8 @@ const Login = () => {
                         name="password"
                         onChange={handleOnChange}
                         variant="standard" />
-
                     <Button type="submit" variant='contained' sx={{ width: '100%', m: 1 }}>Login</Button>
+
                     <NavLink style={{ textDecoration: 'none' }} to="/register"><Button variant="text">New User? Please Register</Button></NavLink>
                 </form>
             </Box>
