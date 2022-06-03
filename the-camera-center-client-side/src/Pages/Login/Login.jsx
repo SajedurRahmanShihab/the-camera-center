@@ -3,12 +3,17 @@ import { Button, TextField, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 
 const Login = () => {
-    const { loginUser } = useAuth();
+    const { loginUser, user } = useAuth();
     const [loginData, setLoginData] = useState({})
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -49,6 +54,8 @@ const Login = () => {
 
                     <NavLink style={{ textDecoration: 'none' }} to="/register"><Button variant="text">New User? Please Register</Button></NavLink>
                 </form>
+                {user?.email && navigate(from, { replace: true })}
+
             </Box>
         </Container>
     );

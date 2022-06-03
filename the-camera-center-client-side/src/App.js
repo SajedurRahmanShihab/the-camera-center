@@ -11,6 +11,9 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import Reviews from './Pages/Reviews/Reviews';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import Products from './Pages/Products/Products';
+import Orders from './Pages/Orders/Orders';
+import PrivatePage from './Pages/PrivatePage/PrivatePage';
 
 function App() {
   return (
@@ -21,6 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/orders" element={<PrivatePage><Orders /></PrivatePage>} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

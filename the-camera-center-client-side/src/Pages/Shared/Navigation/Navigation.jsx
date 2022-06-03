@@ -32,6 +32,9 @@ const Navigation = () => {
                         <NavLink to="/products">
                             <Button style={{ textDecoration: 'none', color: 'white' }} >Products</Button>
                         </NavLink>
+                        <NavLink to="/orders">
+                            <Button style={{ textDecoration: 'none', color: 'white' }} >Orders</Button>
+                        </NavLink>
                         <NavLink to="/blogs">
                             <Button style={{ textDecoration: 'none', color: 'white' }} >Blogs</Button>
                         </NavLink>
