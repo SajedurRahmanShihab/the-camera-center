@@ -17,9 +17,8 @@ import PrivatePage from './Pages/PrivatePage/PrivatePage';
 
 function App() {
   return (
-    <BrowserRouter>
-
-      <AuthProvider>
+    <AuthProvider>
+      <BrowserRouter>
         <Navigation></Navigation>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -31,8 +30,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/reviews" element={<Reviews />} />
         </Routes>
-      </AuthProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
+
   );
 }
 

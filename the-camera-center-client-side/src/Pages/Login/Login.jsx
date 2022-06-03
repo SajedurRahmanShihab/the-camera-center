@@ -8,7 +8,7 @@ import useAuth from '../../hooks/useAuth';
 
 
 const Login = () => {
-    const { loginUser, user } = useAuth();
+    const { loginUser, user, googleSignIn } = useAuth();
     const [loginData, setLoginData] = useState({})
     let navigate = useNavigate();
     let location = useLocation();
@@ -54,6 +54,7 @@ const Login = () => {
 
                     <NavLink style={{ textDecoration: 'none' }} to="/register"><Button variant="text">New User? Please Register</Button></NavLink>
                 </form>
+                <Button onClick={googleSignIn} variant="contained">Google Sign In</Button>
                 {user?.email && navigate(from, { replace: true })}
 
             </Box>
