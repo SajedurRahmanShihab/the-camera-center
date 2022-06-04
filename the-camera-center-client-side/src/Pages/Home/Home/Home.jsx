@@ -1,9 +1,10 @@
 import React from 'react';
+import Banner from '../Banner/Banner';
 
 const Home = () => {
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
-            <h1>This is Home</h1>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+            <Banner></Banner>
         </div>
     );
 };
