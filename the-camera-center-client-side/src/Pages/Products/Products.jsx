@@ -1,14 +1,14 @@
 import React from 'react';
-import camera1 from '../../images/camera-1.jpeg'
-import camera2 from '../../images/camera-2.jpeg'
-import camera3 from '../../images/camera-3.jpeg'
-import camera4 from '../../images/camera-4.jpeg'
-import camera5 from '../../images/camera-5.jpeg'
-import camera6 from '../../images/camera-6.jpeg'
-import camera7 from '../../images/camera-7.jpeg'
-import camera8 from '../../images/camera-8.jpeg'
-import camera9 from '../../images/camera-9.jpeg'
-import camera10 from '../../images/camera-10.jpeg'
+import camera1 from '../../images/camera-1-min.jpeg'
+import camera2 from '../../images/camera-2-min.jpeg'
+import camera3 from '../../images/camera-3-min.jpeg'
+import camera4 from '../../images/camera-4-min.jpeg'
+import camera5 from '../../images/camera-5-min.jpeg'
+import camera6 from '../../images/camera-6-min.jpeg'
+import camera7 from '../../images/camera-7-min.jpeg'
+import camera8 from '../../images/camera-8-min.jpeg'
+import camera9 from '../../images/camera-9-min.jpeg'
+import camera10 from '../../images/camera-10-min.jpeg'
 import { Grid } from '@mui/material';
 import Product from '../Product/Product';
 import { Box, Container } from '@mui/system';
@@ -89,8 +89,8 @@ const Products = () => {
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '10px' }}>
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                         {
-                            products.map(product => <Product
-                                key={product.name}
+                            products.map((product, key) => <Product
+                                key={key}
                                 product={product}
                             >
                             </Product>)

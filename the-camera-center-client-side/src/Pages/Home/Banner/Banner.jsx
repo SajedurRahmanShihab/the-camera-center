@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import banner from '../../../images/banner-bg.jpg'
+import banner from '../../../images/banner-bg-min.jpg'
 
 const Banner = () => {
     return (

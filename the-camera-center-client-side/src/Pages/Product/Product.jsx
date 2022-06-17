@@ -1,5 +1,6 @@
 import { Box, Button, Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Product = (props) => {
     const { name, description, img, price } = props.product;
@@ -26,7 +27,9 @@ const Product = (props) => {
                         </Typography>
                     </Box>
                 </CardContent>
-                <Button variant='contained'>Buy Now</Button>
+                <NavLink to="/orders">
+                    <Button variant='contained'>Buy Now</Button>
+                </NavLink>
             </Card>
         </Grid>
     );

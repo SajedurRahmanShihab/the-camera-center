@@ -3,7 +3,7 @@ const app = express()
 const cors = require('cors');
 require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 3003
 
 // cameraCenterDb
 // y3X86MmBjmehu8h8

@@ -1,10 +1,12 @@
 import React from 'react';
+import HomeProducts from '../../HomeProducts/HomeProducts';
 import Banner from '../Banner/Banner';
 
 const Home = () => {
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+        <div>
             <Banner></Banner>
+            <HomeProducts></HomeProducts>
         </div>
     );
 };
